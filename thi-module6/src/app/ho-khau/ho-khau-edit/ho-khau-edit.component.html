@@ -1,0 +1,73 @@
+<div style="height: 100vh; display: flex; justify-content: center; align-items: center">
+  <div class="container h-100">
+    <div class="row h-100 " style="display: flex; justify-content: center; align-items: center; box-sizing: border-box">
+      <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+        <div class="card shadow-lg" style="box-sizing: border-box">
+          <button class="btn btn-outline-secondary" routerLink="/">Trở lại</button>
+
+          <div class="card-body">
+            <h1 class="mb-5 mt-2 text-primary h2 text-center">Sửa Thông Tin</h1>
+            <form [formGroup]="formEdit" (ngSubmit)="update()">
+              <div class="form-floating mb-4">
+                <input formControlName="maHoKhau" type="text" class="form-control" id="maHoKhau"
+                       placeholder="Nhập mã hộ khẩu">
+                <label for="maHoKhau">Mã Hộ Khẩu<small> *</small></label>
+                <div class="text-danger"
+                     *ngIf="formEdit.controls.maHoKhau.invalid && formEdit.controls.maHoKhau.touched else elseBlock">
+                  <span *ngIf="formEdit.controls.maHoKhau.hasError('required')"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp;Tên tài khoản không được để trống.</span>
+                  <span *ngIf="formEdit.controls.maHoKhau.hasError('minlength')"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp;Tên tài khoản Không nhỏ hơn 3 ký tự.</span>
+                </div>
+                <ng-template #elseBlock><br></ng-template>
+              </div>
+              <div class="form-floating mb-4">
+                <input formControlName="tenChuHo" type="text" class="form-control" id="tenChuHo"
+                       placeholder="Nhập tên chủ hộ">
+                <label for="tenChuHo">Tên Chủ Hộ<small> *</small></label>
+                <div class="text-danger"
+                     *ngIf="formEdit.controls.tenChuHo.invalid && formEdit.controls.tenChuHo.touched else elseBlock">
+                  <span *ngIf="formEdit.controls.tenChuHo.hasError('required')"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp;Tên tài khoản không được để trống.</span>
+                  <span *ngIf="formEdit.controls.tenChuHo.hasError('minlength')"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp;Tên tài khoản Không nhỏ hơn 3 ký tự.</span>
+                </div>
+                <ng-template #elseBlock><br></ng-template>
+              </div>
+              <div class="form-floating mb-4">
+                <input formControlName="soLuongThanhVien" type="number" min="0" class="form-control" id="soLuongThanhVien"
+                       placeholder="Nhập số lượng thành viên">
+                <label for="soLuongThanhVien">Sô Lượng Thành Viên<small> *</small></label>
+                <div class="text-danger"
+                     *ngIf="formEdit.controls.soLuongThanhVien.invalid && formEdit.controls.soLuongThanhVien.touched else elseBlock">
+                  <span *ngIf="formEdit.controls.soLuongThanhVien.hasError('required')"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp;Tên tài khoản không được để trống.</span>
+                  <span *ngIf="formEdit.controls.soLuongThanhVien.hasError('minlength')"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp;Tên tài khoản Không nhỏ hơn 3 ký tự.</span>
+                </div>
+                <ng-template #elseBlock><br></ng-template>
+              </div>
+              <div class="form-floating mb-4">
+                <input formControlName="diaChi" type="text" class="form-control" id="diaChi"
+                       placeholder="Nhập Địa Chỉ">
+                <label for="diaChi">Địa Chỉ<small> *</small></label>
+                <div class="text-danger"
+                     *ngIf="formEdit.controls.diaChi.invalid && formEdit.controls.diaChi.touched else elseBlock">
+                  <span *ngIf="formEdit.controls.diaChi.hasError('required')"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp;Tên tài khoản không được để trống.</span>
+                  <span *ngIf="formEdit.controls.diaChi.hasError('minlength')"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp;Tên tài khoản Không nhỏ hơn 3 ký tự.</span>
+                </div>
+                <ng-template #elseBlock><br></ng-template>
+              </div>
+
+              <div class="row form-floating mb-4">
+                <div class="col-12">
+                  <button [disabled]="formEdit.invalid" type="submit" class="btn btn-primary" style="width: 100%">
+                    Lưu
+                  </button>
+                </div>
+              </div>
+
+              <div class="mt-5 bordert">
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
